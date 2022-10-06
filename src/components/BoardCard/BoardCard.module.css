@@ -1,0 +1,62 @@
+.border {
+    max-width: 300px;
+
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px 1px #000;
+    overflow: hidden;
+}
+
+.borderImage {
+    width: 100%;
+
+}
+
+.labelContainer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+}
+
+.label {
+    width: 50px;
+    background-color: rgb(239, 197, 84);
+    border-radius: 7px;
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.cardInfo {
+    padding: 0 10px;
+}
+
+.boarderTitle {
+    margin: 0;
+}
+
+.boarderText {
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+.boarderAvatar {
+    width: 40px;
+    height: 40px;
+}
+
+.boarderProfile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dataWrapper {
+    margin-left: 10px;
+}
+
+.boarderName {
+    margin: 0;
+}
