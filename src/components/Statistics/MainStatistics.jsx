@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StatCard from "./StatitisticCards";
+import css from './StatisticsStyles.module.css'
 
 class StatCompon extends Component {
 
@@ -42,9 +43,9 @@ class StatCompon extends Component {
   render() {
   
     return (
-      <div>
-        <h1>Main stats</h1>
-        <div>
+      <div className={css.statistics_wrapper}>
+        <h1 className={css.statistics_header}>Main statistics</h1>
+        <div className={css.statistics_cards_wrapper}>
           {this.state.statsElements.map(({id,title,count}) => (
             <StatCard
               id={id}

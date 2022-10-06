@@ -1,0 +1,63 @@
+.statistics_wrapper {
+  padding: 20px;
+  margin: 0 auto;
+}
+.statistics_header {
+  text-align: center;
+  margin: 20px auto;
+}
+.statistics_cards_wrapper {
+  display: flex;
+}
+.card_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  margin: 5px;
+  background-color: rgb(223, 223, 223);
+}
+.buttons {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+.decrease_button,
+.increase_button,
+.clear_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-style: none;
+  box-shadow: 0px 0px 2px 2px rgba(47, 129, 180, 0.75);
+}
+.buttonIcon {
+  width: 10px;
+  height: 10px;
+  padding: 6px 3px;
+}
+.count_value {
+  margin-bottom: 7px;
+  font-size: large;
+  font-weight: 900;
+  color: rgb(47, 129, 180);
+}
+.card_description {
+  margin-bottom: 7px;
+  color: rgb(95, 95, 95);
+}
+.delete_button {
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 0px 0px 2px 2px rgba(47, 129, 180, 0.75);
+}
+.thrashIcon {
+  margin-left: 5px;
+  width: 10px;
+  height: 10px;
+}
