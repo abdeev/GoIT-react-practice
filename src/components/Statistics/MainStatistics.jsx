@@ -51,12 +51,7 @@ class StatCompon extends Component {
   };
 
   hendelDeleteCard = id => {
-    const filteredCards = this.state.statsElements.filter(el => {
-      if (el.id === id) {
-        return false;
-      }
-      return el;
-    });
+    const filteredCards = this.state.statsElements.filter(el => el.id !== id);
     this.setState({ statsElements: filteredCards });
   };
 
