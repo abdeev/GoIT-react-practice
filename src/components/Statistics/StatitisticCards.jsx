@@ -12,8 +12,10 @@ const StatCard = ({
   hendlIncreaseClick,
   handleDecreaseCounter,
   handleResetCounter,
+  handleDeleteCard,
 }) => {
   const hendleUpClick = () => hendlIncreaseClick(id);
+  const handleDeleteClick = () => handleDeleteCard(id);
 
   return (
     <div className={css.card_wrapper}>
@@ -21,8 +23,8 @@ const StatCard = ({
         <button className={css.increase_button} onClick={hendleUpClick}>
           <UpIcon className={css.buttonIcon} />
         </button>
-        <button className={css.clear_button}>
-          <CrossIcon className={css.buttonIcon} onClick={handleResetCounter} />
+        <button className={css.clear_button} onClick={handleResetCounter}>
+          <CrossIcon className={css.buttonIcon} />
         </button>
         <button className={css.decrease_button}>
           <DownIcon
@@ -33,7 +35,7 @@ const StatCard = ({
       </div>
       <span className={css.count_value}> {count}</span>
       <span className={css.card_description}>{title}</span>
-      <button className={css.delete_button}>
+      <button className={css.delete_button} onClick={handleDeleteClick}>
         Delete card
         <TrashIcon className={css.thrashIcon} />
       </button>
