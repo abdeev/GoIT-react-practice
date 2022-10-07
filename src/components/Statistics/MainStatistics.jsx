@@ -55,6 +55,16 @@ class StatCompon extends Component {
     };
   };
 
+  handleDeleteCard = id => {
+    const filteredCards = this.state.statsElements.filter(el => {
+      if (el.id === id) {
+        return false;
+      }
+      return el;
+    });
+    this.setState({ statsElements: filteredCards });
+  };
+
   render() {
     return (
       <div className={css.statistics_wrapper}>
@@ -67,6 +77,7 @@ class StatCompon extends Component {
               count={count}
               key={id}
               hendlIncreaseClick={this.hendelIncreaseCounter}
+              handleDeleteCard={this.handleDeleteCard}
               handleDecreaseCounter={this.handleDecreaseCounter(id)}
               handleResetCounter={this.handleResetCounter(id)}
             />
