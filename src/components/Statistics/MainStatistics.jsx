@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StatCard from './StatitisticCards';
 import css from './StatisticsStyles.module.css';
+import AddCardForm from 'components/AddCardForm/AddCardForm';
 
 class StatCompon extends Component {
   constructor() {
@@ -60,10 +61,15 @@ class StatCompon extends Component {
     this.setState({ statsElements: filteredCards });
   };
 
+  handleCreateCard = cardObj => {
+    this.setState({ statsElements: [cardObj, ...this.state.statsElements] });
+  };
+
   render() {
     return (
       <div className={css.statistics_wrapper}>
         <h1 className={css.statistics_header}>Main statistics</h1>
+        <AddCardForm onCreateCard={this.handleCreateCard} />
         <div className={css.statistics_cards_wrapper}>
           {this.state.statsElements.map(({ id, title, count }) => (
             <StatCard
