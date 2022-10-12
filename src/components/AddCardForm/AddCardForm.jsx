@@ -42,6 +42,7 @@ export class AddCardForm extends Component {
           className={css.addCardInput}
           onChange={this.handleTitle}
           value={this.state.title}
+          placeholder="Enter name of items"
         />
         <input
           type="text"
