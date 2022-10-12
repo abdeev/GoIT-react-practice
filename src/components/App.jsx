@@ -4,7 +4,8 @@ import MainStat from './Statistics/MainStatistics'
 export const App = () => {
   return (
     <div className="wrapper">
-    <MainStat />
+      <MainStat />
+      
       {/* <BoardCard
         imgURL="https://post.healthline.com/wp-content/uploads/2020/09/healthy-eating-ingredients-732x549-thumbnail.jpg"
         label="food"
@@ -18,6 +19,8 @@ export const App = () => {
           time: '3 months ago',
         }}
       /> */}
+
+      
     </div>
   );
 };

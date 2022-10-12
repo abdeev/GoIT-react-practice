@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import StatCard from './StatitisticCards';
 import css from './StatisticsStyles.module.css';
-import AddCardForm from 'components/AddCardForm/AddCardForm';
+// import AddCardForm from 'components/AddCardForm/AddCardForm';
+
+import ButtonModal from 'components/ButtonModal/ButtonModal';
+import Modal from 'components/Modal/Modal';
 
 class StatCompon extends Component {
   constructor() {
@@ -13,6 +16,7 @@ class StatCompon extends Component {
         { id: 3, title: 'Products', count: 1000 },
         { id: 4, title: 'Trees', count: 1000 },
       ],
+      showModal: false,
     };
   }
 
@@ -62,14 +66,29 @@ class StatCompon extends Component {
   };
 
   handleCreateCard = cardObj => {
-    this.setState({ statsElements: [cardObj, ...this.state.statsElements] });
+    this.setState({ statsElements: [cardObj, ...this.state.statsElements], showModal: false });
   };
+
+  handleOpenModal = (event) => {
+    console.log(event.target);
+
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal = (event) => {
+    console.log(event.target);
+
+    this.setState({ showModal: false });
+  }
 
   render() {
     return (
       <div className={css.statistics_wrapper}>
         <h1 className={css.statistics_header}>Main statistics</h1>
-        <AddCardForm onCreateCard={this.handleCreateCard} />
+        {/* <AddCardForm onCreateCard={this.handleCreateCard} /> */}
+
+        <ButtonModal actionOpenModal={this.handleOpenModal} />
+       
         <div className={css.statistics_cards_wrapper}>
           {this.state.statsElements.map(({ id, title, count }) => (
             <StatCard
@@ -84,7 +103,10 @@ class StatCompon extends Component {
             />
           ))}
         </div>
-      </div>
+
+        {this.state.showModal && <Modal onCreateCard={this.handleCreateCard} onCloseModal={this.handleCloseModal} />}
+
+      </div> 
     );
   }
 }
