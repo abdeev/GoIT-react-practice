@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/GoIT-react-practice/static/css/main.caa26ee9.css",
-    "main.js": "/GoIT-react-practice/static/js/main.3d577de6.js",
+    "main.js": "/GoIT-react-practice/static/js/main.f8036f99.js",
     "static/media/thrash.svg": "/GoIT-react-practice/static/media/thrash.d3d7d5585c5ec9853e59f4b26bfab816.svg",
     "static/media/cross.svg": "/GoIT-react-practice/static/media/cross.a570beb2570616792457341441f60952.svg",
     "index.html": "/GoIT-react-practice/index.html",
     "static/media/up.svg": "/GoIT-react-practice/static/media/up.b30e8c1cc8630552f2a1c92f40c3a644.svg",
     "static/media/down.svg": "/GoIT-react-practice/static/media/down.1b57139fae6e4e5990922317d47c01f2.svg",
     "main.caa26ee9.css.map": "/GoIT-react-practice/static/css/main.caa26ee9.css.map",
-    "main.3d577de6.js.map": "/GoIT-react-practice/static/js/main.3d577de6.js.map"
+    "main.f8036f99.js.map": "/GoIT-react-practice/static/js/main.f8036f99.js.map"
   },
   "entrypoints": [
     "static/css/main.caa26ee9.css",
-    "static/js/main.3d577de6.js"
+    "static/js/main.f8036f99.js"
   ]
 }
