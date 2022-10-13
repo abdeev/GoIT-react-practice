@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import StatCard from './StatitisticCards';
 import css from './StatisticsStyles.module.css';
-// import AddCardForm from 'components/AddCardForm/AddCardForm';
 
 import ButtonModal from 'components/ButtonModal/ButtonModal';
 import Modal from 'components/Modal/Modal';
