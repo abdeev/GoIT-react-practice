@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 import css from 'components/AddCardForm/AddCardForm.module.css';
 
 export class AddCardForm extends Component {
@@ -7,6 +8,15 @@ export class AddCardForm extends Component {
     count: 0,
   };
 
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleListenKey);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleListenKey);
+  }
+  handleListenKey = e => {
+    if (e.key === 'Enter') this.handleCreateCard();
+  };
   handleTitle = evt => {
     this.setState({ title: evt.currentTarget.value });
   };
@@ -24,7 +34,7 @@ export class AddCardForm extends Component {
     }
 
     const card = {
-      id: Date.now(),
+      id: nanoid(),
       title: this.state.title,
       count: this.state.count,
     };

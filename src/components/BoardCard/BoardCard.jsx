@@ -3,7 +3,6 @@ import { ReactComponent as CrossIcon } from 'static/img/cross.svg';
 import css from './BoardCard.module.css';
 
 export class BoardCard extends Component {
-    
   constructor() {
     super();
     this.state = {
@@ -14,19 +13,17 @@ export class BoardCard extends Component {
         { id: 'f-4', label: 'tee' },
         { id: 'f-5', label: 'apple' },
         { id: 'f-6', label: 'banana' },
-        { id: 'f-7', label: 'potato' },                                   
+        { id: 'f-7', label: 'potato' },
       ],
-    }
+    };
   }
 
-  handleItemDelete = (id) => {
-    return (() => {
-      console.log(id);
+  handleItemDelete = id => {
+    return () => {
       const array = this.state.labels.filter(label => label.id !== id);
-      console.log(array);
-      this.setState({labels: array});
-    });
-  }
+      this.setState({ labels: array });
+    };
+  };
 
   render() {
     const { imgURL, label, title, text, user } = this.props;
@@ -38,8 +35,12 @@ export class BoardCard extends Component {
         <img className={css.borderImage} src={imgURL} alt={label} />
         <div className={css.labelContainer}>
           {labels.map(label => (
-            <span key={label.id} className={css.label}>{label.label}
-              <CrossIcon className={css.buttonIcon} onClick={this.handleItemDelete(label.id)} />
+            <span key={label.id} className={css.label}>
+              {label.label}
+              <CrossIcon
+                className={css.buttonIcon}
+                onClick={this.handleItemDelete(label.id)}
+              />
             </span>
           ))}
         </div>
@@ -50,7 +51,11 @@ export class BoardCard extends Component {
           <p className={css.boarderText}>{text}</p>
 
           <div className={css.boarderProfile}>
-            <img className={css.boarderAvatar} src={avatar} alt={`${name} avatar`} />
+            <img
+              className={css.boarderAvatar}
+              src={avatar}
+              alt={`${name} avatar`}
+            />
             <div className={css.dataWrapper}>
               <h3 className={css.boarderName}>{name}</h3>
               <span className={css.boarderTime}>{time}</span>
