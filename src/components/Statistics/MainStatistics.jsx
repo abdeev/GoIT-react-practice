@@ -10,14 +10,25 @@ class StatCompon extends Component {
   constructor() {
     super();
     this.state = {
-      statsElements: [
-        { id: 1, title: 'Likes', count: 1000 },
-        { id: 2, title: 'Members', count: 1000 },
-        { id: 3, title: 'Products', count: 1000 },
-        { id: 4, title: 'Trees', count: 1000 },
-      ],
+      statsElements: [],
       showModal: false,
     };
+  }
+
+  componentDidMount() {
+    const LSData = JSON.parse(localStorage.getItem('statsElements'));
+
+    if (!LSData) return;
+
+    this.setState({ statsElements: LSData });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.statsElements !== this.state.statsElements) {
+      const LSSetData = JSON.stringify(this.state.statsElements);
+
+      localStorage.setItem('statsElements', LSSetData);
+    }
   }
 
   hendelIncreaseCounter = id => {
@@ -66,20 +77,19 @@ class StatCompon extends Component {
   };
 
   handleCreateCard = cardObj => {
-    this.setState({ statsElements: [cardObj, ...this.state.statsElements], showModal: false });
+    this.setState({
+      statsElements: [cardObj, ...this.state.statsElements],
+      showModal: false,
+    });
   };
 
-  handleOpenModal = (event) => {
-    console.log(event.target);
-
+  handleOpenModal = event => {
     this.setState({ showModal: true });
-  }
+  };
 
-  handleCloseModal = (event) => {
-    console.log(event.target);
-
+  handleCloseModal = event => {
     this.setState({ showModal: false });
-  }
+  };
 
   render() {
     return (
@@ -88,7 +98,7 @@ class StatCompon extends Component {
         {/* <AddCardForm onCreateCard={this.handleCreateCard} /> */}
 
         <ButtonModal actionOpenModal={this.handleOpenModal} />
-       
+
         <div className={css.statistics_cards_wrapper}>
           {this.state.statsElements.map(({ id, title, count }) => (
             <StatCard
@@ -104,9 +114,13 @@ class StatCompon extends Component {
           ))}
         </div>
 
-        {this.state.showModal && <Modal onCreateCard={this.handleCreateCard} onCloseModal={this.handleCloseModal} />}
-
-      </div> 
+        {this.state.showModal && (
+          <Modal
+            onCreateCard={this.handleCreateCard}
+            onCloseModal={this.handleCloseModal}
+          />
+        )}
+      </div>
     );
   }
 }
