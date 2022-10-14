@@ -1,75 +1,69 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import css from 'components/AddCardForm/AddCardForm.module.css';
 
-export class AddCardForm extends Component {
-  state = {
-    title: '',
-    count: 0,
+export const AddCardForm = ({ onCreateCard }) => {
+  const [title, setTitle] = useState('');
+  const [count, setCount] = useState(0);
+
+  const handleTitle = evt => {
+    setTitle(evt.currentTarget.value);
   };
 
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleListenKey);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleListenKey);
-  }
-  handleListenKey = e => {
-    if (e.key === 'Enter') this.handleCreateCard();
-  };
-  handleTitle = evt => {
-    this.setState({ title: evt.currentTarget.value });
+  const handleCount = evt => {
+    setCount(+evt.currentTarget.value.replace(/[^0-9]/g, ''));
   };
 
-  handleCount = evt => {
-    this.setState({
-      count: +evt.currentTarget.value.replace(/[^0-9]/g, ''),
-    });
-  };
-
-  handleCreateCard = () => {
-    if (!this.state.title) {
+  const handleCreateCard = () => {
+    if (!title) {
       alert('title not provided');
       return;
     }
 
     const card = {
       id: nanoid(),
-      title: this.state.title,
-      count: this.state.count,
+      title: title,
+      count: count,
     };
 
-    this.props.onCreateCard(card);
-
-    this.setState({ title: '', count: 0 });
+    onCreateCard(card);
+    setTitle('');
+    setCount(0);
   };
 
-  render() {
-    return (
-      <div className={css.inputWrapper}>
-        <input
-          type="text"
-          className={css.addCardInput}
-          onChange={this.handleTitle}
-          value={this.state.title}
-          placeholder="Enter name of items"
-        />
-        <input
-          type="text"
-          className={css.addCardInput}
-          onChange={this.handleCount}
-          value={this.state.count}
-        />
-        <button
-          type="button"
-          className={css.addCardButton}
-          onClick={this.handleCreateCard}
-        >
-          Create
-        </button>
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    const handleListenKey = e => {
+      if (e.key === 'Enter') handleCreateCard();
+    };
 
-export default AddCardForm;
+    window.addEventListener('keydown', handleListenKey);
+
+    return () => window.removeEventListener('keydown', handleListenKey);
+    // eslint-disable-next-line
+  }, [title, count]);
+
+  return (
+    <div className={css.inputWrapper}>
+      <input
+        type="text"
+        className={css.addCardInput}
+        onChange={handleTitle}
+        value={title}
+        placeholder="Enter name of items"
+      />
+      <input
+        type="text"
+        className={css.addCardInput}
+        onChange={handleCount}
+        value={count}
+      />
+      <button
+        type="button"
+        className={css.addCardButton}
+        onClick={handleCreateCard}
+      >
+        Create
+      </button>
+    </div>
+  );
+};
