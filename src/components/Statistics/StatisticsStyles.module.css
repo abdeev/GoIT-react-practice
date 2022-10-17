@@ -1,6 +1,7 @@
 .statistics_wrapper {
   padding: 20px;
   margin: 0 auto;
+  text-align: center;
 }
 .statistics_header {
   text-align: center;
@@ -8,6 +9,7 @@
 }
 .statistics_cards_wrapper {
   display: flex;
+  flex-wrap: wrap;
 }
 .card_wrapper {
   display: flex;

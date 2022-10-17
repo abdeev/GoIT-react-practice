@@ -1,0 +1,19 @@
+.inputWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.addCardInput {
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+}
+
+.addCardButton {
+  border-radius: 15px;
+  border: none;
+  background-color: lightgreen;
+  cursor: pointer;
+}

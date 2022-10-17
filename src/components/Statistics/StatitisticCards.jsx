@@ -9,33 +9,33 @@ const StatCard = ({
   id,
   title,
   count,
-  hendlClickPlus,
-  hendlClickMinuse,
-  hendelResetCounter,
-  hendelDeleteCard,
+  hendlIncreaseClick,
+  handleDecreaseCounter,
+  handleResetCounter,
+  handleDeleteCard,
 }) => {
-  const hendlUpClick = () => hendlClickPlus(id);
-  const hendelDeleteClick = () => hendelDeleteCard(id);
+  const hendleUpClick = () => hendlIncreaseClick(id);
+  const handleDeleteClick = () => handleDeleteCard(id);
 
   return (
     <div className={css.card_wrapper}>
       <div className={css.buttons}>
-        <button
-          className={css.increase_button}
-          onClick={() => hendlUpClick(id)}
-        >
+        <button className={css.increase_button} onClick={hendleUpClick}>
           <UpIcon className={css.buttonIcon} />
         </button>
-        <button className={css.clear_button}>
-          <CrossIcon className={css.buttonIcon} onClick={hendelResetCounter} />
+        <button className={css.clear_button} onClick={handleResetCounter}>
+          <CrossIcon className={css.buttonIcon} />
         </button>
         <button className={css.decrease_button}>
-          <DownIcon className={css.buttonIcon} onClick={hendlClickMinuse} />
+          <DownIcon
+            className={css.buttonIcon}
+            onClick={handleDecreaseCounter}
+          />
         </button>
       </div>
       <span className={css.count_value}> {count}</span>
       <span className={css.card_description}>{title}</span>
-      <button className={css.delete_button} onClick={hendelDeleteClick}>
+      <button className={css.delete_button} onClick={handleDeleteClick}>
         Delete card
         <TrashIcon className={css.thrashIcon} />
       </button>
