@@ -63,3 +63,22 @@
   width: 10px;
   height: 10px;
 }
+
+.nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.navBtn {
+  display: block;
+  min-width: 125px;
+  text-decoration: none;
+  color: gray;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  padding: 10px;
+  
+}
