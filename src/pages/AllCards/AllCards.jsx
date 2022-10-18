@@ -3,10 +3,11 @@ import css from '../../components/Statistics/StatisticsStyles.module.css';
 
 export const AllCards = ({
   items,
-  hendelIncreaseCounter,
+  handelIncreaseCounter,
   handleDeleteCard,
   handleDecreaseCounter,
   handleResetCounter,
+  handleAddFavourite,
 }) => {
   return (
     <div className={css.statistics_cards_wrapper}>
@@ -16,10 +17,11 @@ export const AllCards = ({
           title={title}
           count={count}
           key={id}
-          hendlIncreaseClick={hendelIncreaseCounter}
+          handlIncreaseClick={handelIncreaseCounter}
           handleDeleteCard={handleDeleteCard}
           handleDecreaseCounter={handleDecreaseCounter(id)}
           handleResetCounter={handleResetCounter(id)}
+          handleAddFavourite={handleAddFavourite}
         />
       ))}
     </div>
