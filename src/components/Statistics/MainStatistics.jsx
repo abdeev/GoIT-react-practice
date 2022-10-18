@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import StatCard from './StatitisticCards';
+import { Link, Route, Routes } from 'react-router-dom';
+import { AllCards } from 'pages/AllCards/AllCards';
+import { FavorietsCards } from 'pages/FavorietsCards/FavorietsCards';
+
 import css from './StatisticsStyles.module.css';
 
 import { ButtonModal } from 'components/ButtonModal/ButtonModal';
@@ -80,24 +83,32 @@ export const StatCompon = () => {
   return (
     <div className={css.statistics_wrapper}>
       <h1 className={css.statistics_header}>Main statistics</h1>
-      {/* <AddCardForm onCreateCard={this.handleCreateCard} /> */}
 
       <ButtonModal actionOpenModal={handleOpenModal} />
-
-      <div className={css.statistics_cards_wrapper}>
-        {statsElements.map(({ id, title, count }) => (
-          <StatCard
-            id={id}
-            title={title}
-            count={count}
-            key={id}
-            hendlIncreaseClick={hendelIncreaseCounter}
-            handleDeleteCard={handleDeleteCard}
-            handleDecreaseCounter={handleDecreaseCounter(id)}
-            handleResetCounter={handleResetCounter(id)}
-          />
-        ))}
-      </div>
+      <nav className={css.nav}>
+        <Link to="/" className={css.navBtn}>
+          All cards
+        </Link>
+        <Link to="/favoriets" className={css.navBtn}>
+          Favoriets cards
+        </Link>
+      </nav>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <AllCards
+              items={statsElements}
+              hendelIncreaseCounter={hendelIncreaseCounter}
+              handleDeleteCard={handleDeleteCard}
+              handleDecreaseCounter={handleDecreaseCounter}
+              handleResetCounter={handleResetCounter}
+            />
+          }
+        />
+        <Route path="/favoriets" element={<FavorietsCards />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
+      </Routes>
 
       {showModal && (
         <Modal

@@ -1,4 +1,3 @@
-// import { BoardCard } from './BoardCard/BoardCard';
 import { StatCompon } from './Statistics/MainStatistics';
 
 export const App = () => {
