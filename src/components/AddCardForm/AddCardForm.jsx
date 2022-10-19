@@ -25,6 +25,8 @@ export const AddCardForm = ({ onCreateCard }) => {
       title: title,
       count: count,
       favorite: false,
+      totalCards: 0,
+      totalFavCards: 0,
     };
 
     onCreateCard(card);

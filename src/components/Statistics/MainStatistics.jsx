@@ -101,6 +101,13 @@ export const StatCompon = () => {
     // }
     // setFavouriteCard(prev => [...prev, card]);
   };
+
+  // const totalFavourites = () => {
+  //   const totalFav = statsElements.filter(el => el.favorite).length;
+  //   setStatsElements.totalCards = statsElements.length;
+  //   setStatsElements.totalFavCards = totalFav;
+  // };
+
   return (
     <div className={css.statistics_wrapper}>
       <h1 className={css.statistics_header}>Main statistics</h1>
@@ -108,10 +115,10 @@ export const StatCompon = () => {
       <ButtonModal actionOpenModal={handleOpenModal} />
       <nav className={css.nav}>
         <NavLink to="/" end className={css.navBtn}>
-          All cards
+          All cards {statsElements.totalCards}
         </NavLink>
         <NavLink to="/favoriets" className={css.navBtn}>
-          Favourites cards
+          Favourites cards {statsElements.totalFavCards}
         </NavLink>
       </nav>
       <Routes>

@@ -83,6 +83,8 @@
 .favouriteIcon {
   width: 15px;
   height: 15px;
+  fill: transparent;
+  stroke: red;
 }
 
 .favouriteActiveIcon {
