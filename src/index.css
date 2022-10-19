@@ -24,3 +24,6 @@ code {
   justify-content: center;
   background-color: rgb(126, 183, 192);
 }
+.active {
+  color: black;
+}

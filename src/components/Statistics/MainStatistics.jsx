@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import { AllCards } from 'pages/AllCards/AllCards';
 import { FavorietsCards } from 'pages/FavorietsCards/FavorietsCards';
 
@@ -81,7 +81,12 @@ export const StatCompon = () => {
 
   const handleAddFavourite = id => {
     const card = statsElements.find(el => el.id === id);
+    const favCard = favouriteCard.find(el => el.id === id);
     if (!card) return;
+    if (favCard) {
+      setFavouriteCard(prev => prev.filter(favCard => favCard.id !== id));
+      return;
+    }
     setFavouriteCard(prev => [...prev, card]);
   };
   return (
@@ -90,12 +95,12 @@ export const StatCompon = () => {
 
       <ButtonModal actionOpenModal={handleOpenModal} />
       <nav className={css.nav}>
-        <Link to="/" className={css.navBtn}>
+        <NavLink to="/" end className={css.navBtn}>
           All cards
-        </Link>
-        <Link to="/favoriets" className={css.navBtn}>
+        </NavLink>
+        <NavLink to="/favoriets" className={css.navBtn}>
           Favourites cards
-        </Link>
+        </NavLink>
       </nav>
       <Routes>
         <Route
