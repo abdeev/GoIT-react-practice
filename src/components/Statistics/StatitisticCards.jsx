@@ -10,6 +10,7 @@ const StatCard = ({
   id,
   title,
   count,
+  favorite,
   handlIncreaseClick,
   handleDecreaseCounter,
   handleResetCounter,
@@ -41,7 +42,7 @@ const StatCard = ({
       <div className={css.buttonContainer}>
         <button className={css.favouriteBtn}>
           <FavouritesIcon
-            className={css.favouriteIcon}
+            className={favorite ? css.favouriteActiveIcon : css.favouriteIcon}
             onClick={handleFavouriteClick}
           />
         </button>

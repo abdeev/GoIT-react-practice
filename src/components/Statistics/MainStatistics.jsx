@@ -15,7 +15,7 @@ const localStorage = () => {
 export const StatCompon = () => {
   const [statsElements, setStatsElements] = useState(localStorage() ?? []);
   const [showModal, setShowModal] = useState(false);
-  const [favouriteCard, setFavouriteCard] = useState([]);
+  // const [favouriteCard, setFavouriteCard] = useState([]);
 
   useEffect(() => {
     const LSSetData = JSON.stringify(statsElements);
@@ -80,14 +80,26 @@ export const StatCompon = () => {
   };
 
   const handleAddFavourite = id => {
-    const card = statsElements.find(el => el.id === id);
-    const favCard = favouriteCard.find(el => el.id === id);
-    if (!card) return;
-    if (favCard) {
-      setFavouriteCard(prev => prev.filter(favCard => favCard.id !== id));
-      return;
-    }
-    setFavouriteCard(prev => [...prev, card]);
+    const newArr = statsElements.map(card => {
+      if (card.id !== id) {
+        return card;
+      }
+
+      return { ...card, favorite: !card.favorite };
+    });
+    setStatsElements(newArr);
+
+    // const card = statsElements.find(el => el.id === id);
+
+    // const favCard = favouriteCard.find(el => el.id === id);
+
+    // if (!card) return;
+
+    // if (favCard) {
+    //   setFavouriteCard(prev => prev.filter(favCard => favCard.id !== id));
+    //   return;
+    // }
+    // setFavouriteCard(prev => [...prev, card]);
   };
   return (
     <div className={css.statistics_wrapper}>
@@ -120,7 +132,7 @@ export const StatCompon = () => {
           path="/favoriets"
           element={
             <FavorietsCards
-              cards={favouriteCard}
+              cards={statsElements}
               handelIncreaseCounter={handelIncreaseCounter}
               handleDeleteCard={handleDeleteCard}
               handleDecreaseCounter={handleDecreaseCounter}

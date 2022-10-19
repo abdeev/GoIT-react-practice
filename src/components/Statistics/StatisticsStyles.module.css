@@ -85,6 +85,13 @@
   height: 15px;
 }
 
+.favouriteActiveIcon {
+  width: 15px;
+  height: 15px;
+
+  fill: red;
+}
+
 .buttonContainer {
   display: flex;
   width: 100%;
@@ -96,7 +103,6 @@
   gap: 20px;
   justify-content: center;
   margin-bottom: 20px;
-
 }
 
 .navBtn {
@@ -107,5 +113,4 @@
   background-color: antiquewhite;
   border-radius: 10px;
   padding: 10px;
-
 }

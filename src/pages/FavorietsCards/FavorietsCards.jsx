@@ -11,19 +11,22 @@ export const FavorietsCards = ({
 }) => {
   return (
     <div className={css.statistics_cards_wrapper}>
-      {cards.map(({ id, title, count }) => (
-        <StatCard
-          id={id}
-          title={title}
-          count={count}
-          key={id}
-          handlIncreaseClick={handelIncreaseCounter}
-          handleDeleteCard={handleDeleteCard}
-          handleDecreaseCounter={handleDecreaseCounter(id)}
-          handleResetCounter={handleResetCounter(id)}
-          handleAddFavourite={handleAddFavourite}
-        />
-      ))}
+      {cards
+        .filter(card => card.favorite)
+        .map(({ id, title, count, favorite }) => (
+          <StatCard
+            id={id}
+            title={title}
+            count={count}
+            favorite={favorite}
+            key={id}
+            handlIncreaseClick={handelIncreaseCounter}
+            handleDeleteCard={handleDeleteCard}
+            handleDecreaseCounter={handleDecreaseCounter(id)}
+            handleResetCounter={handleResetCounter(id)}
+            handleAddFavourite={handleAddFavourite}
+          />
+        ))}
     </div>
   );
 };
