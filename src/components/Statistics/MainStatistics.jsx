@@ -7,6 +7,8 @@ import css from './StatisticsStyles.module.css';
 
 import { ButtonModal } from 'components/ButtonModal/ButtonModal';
 import { Modal } from 'components/Modal/Modal';
+import NotFound from 'pages/NotFound/NotFound';
+
 
 const localStorage = () => {
   return JSON.parse(window.localStorage.getItem('statsElements'));
@@ -15,7 +17,7 @@ const localStorage = () => {
 export const StatCompon = () => {
   const [statsElements, setStatsElements] = useState(localStorage() ?? []);
   const [showModal, setShowModal] = useState(false);
-  // const [favouriteCard, setFavouriteCard] = useState([]);
+  const [favTotal, setFavTotal] = useState(null);
 
   useEffect(() => {
     const LSSetData = JSON.stringify(statsElements);
@@ -88,25 +90,13 @@ export const StatCompon = () => {
       return { ...card, favorite: !card.favorite };
     });
     setStatsElements(newArr);
-
-    // const card = statsElements.find(el => el.id === id);
-
-    // const favCard = favouriteCard.find(el => el.id === id);
-
-    // if (!card) return;
-
-    // if (favCard) {
-    //   setFavouriteCard(prev => prev.filter(favCard => favCard.id !== id));
-    //   return;
-    // }
-    // setFavouriteCard(prev => [...prev, card]);
   };
 
-  // const totalFavourites = () => {
-  //   const totalFav = statsElements.filter(el => el.favorite).length;
-  //   setStatsElements.totalCards = statsElements.length;
-  //   setStatsElements.totalFavCards = totalFav;
-  // };
+  useEffect(() => {
+    const favLength = statsElements.filter(card => card.favorite).length;
+    setFavTotal(favLength);
+  }, [statsElements]);
+
 
   return (
     <div className={css.statistics_wrapper}>
@@ -115,12 +105,15 @@ export const StatCompon = () => {
       <ButtonModal actionOpenModal={handleOpenModal} />
       <nav className={css.nav}>
         <NavLink to="/" end className={css.navBtn}>
-          All cards {statsElements.totalCards}
+
+          All cards
         </NavLink>
         <NavLink to="/favoriets" className={css.navBtn}>
-          Favourites cards {statsElements.totalFavCards}
+          Favourites cards
+          {!!favTotal && <b className={css.favCounter}>{favTotal}</b>}
         </NavLink>
       </nav>
+      
       <Routes>
         <Route
           path="/"

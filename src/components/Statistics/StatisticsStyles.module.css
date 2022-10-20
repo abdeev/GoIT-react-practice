@@ -108,6 +108,7 @@
 }
 
 .navBtn {
+  position: relative;
   display: block;
   min-width: 125px;
   text-decoration: none;
@@ -116,3 +117,16 @@
   border-radius: 10px;
   padding: 10px;
 }
+
+.favCounter {
+  position: absolute;
+  font-style: normal;
+  width: 20px;
+  height: 20px;
+  border: 1px solid red;
+  border-radius: 50%;
+  top: -12px;
+  right: -12px;
+  background-color: antiquewhite;
+}
+
