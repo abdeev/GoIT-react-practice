@@ -3,14 +3,17 @@
   margin: 0 auto;
   text-align: center;
 }
+
 .statistics_header {
   text-align: center;
   margin: 20px auto;
 }
+
 .statistics_cards_wrapper {
   display: flex;
   flex-wrap: wrap;
 }
+
 .card_wrapper {
   display: flex;
   flex-direction: column;
@@ -23,11 +26,13 @@
   margin: 5px;
   background-color: rgb(223, 223, 223);
 }
+
 .buttons {
   display: flex;
   gap: 30px;
   margin-bottom: 10px;
 }
+
 .decrease_button,
 .increase_button,
 .clear_button {
@@ -38,30 +43,61 @@
   border-style: none;
   box-shadow: 0px 0px 2px 2px rgba(47, 129, 180, 0.75);
 }
+
 .buttonIcon {
   width: 10px;
   height: 10px;
   padding: 6px 3px;
 }
+
 .count_value {
   margin-bottom: 7px;
   font-size: large;
   font-weight: 900;
   color: rgb(47, 129, 180);
 }
+
 .card_description {
   margin-bottom: 7px;
   color: rgb(95, 95, 95);
 }
+
 .delete_button {
   border-radius: 5px;
   border-style: none;
   box-shadow: 0px 0px 2px 2px rgba(47, 129, 180, 0.75);
 }
+
 .thrashIcon {
   margin-left: 5px;
   width: 10px;
   height: 10px;
+}
+
+.favouriteBtn {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.favouriteIcon {
+  width: 15px;
+  height: 15px;
+  fill: transparent;
+  stroke: red;
+}
+
+.favouriteActiveIcon {
+  width: 15px;
+  height: 15px;
+
+  fill: red;
+}
+
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .nav {
@@ -69,10 +105,10 @@
   gap: 20px;
   justify-content: center;
   margin-bottom: 20px;
-
 }
 
 .navBtn {
+  position: relative;
   display: block;
   min-width: 125px;
   text-decoration: none;
@@ -80,5 +116,16 @@
   background-color: antiquewhite;
   border-radius: 10px;
   padding: 10px;
-  
+}
+
+.favCounter {
+  position: absolute;
+  font-style: normal;
+  width: 20px;
+  height: 20px;
+  border: 1px solid red;
+  border-radius: 50%;
+  top: -12px;
+  right: -12px;
+  background-color: antiquewhite;
 }

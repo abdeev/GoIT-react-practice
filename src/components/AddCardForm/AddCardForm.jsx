@@ -24,6 +24,9 @@ export const AddCardForm = ({ onCreateCard }) => {
       id: nanoid(),
       title: title,
       count: count,
+      favorite: false,
+      totalCards: 0,
+      totalFavCards: 0,
     };
 
     onCreateCard(card);
