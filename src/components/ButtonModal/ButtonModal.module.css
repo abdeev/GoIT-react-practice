@@ -1,25 +1,26 @@
 .button {
-    display: inline-block;
-    border: 0;
-    padding: 10px 30px;
-    margin: 20px 0;
-    border-radius: 10px;
-    background: rgb(90, 90, 219);
-    color: white;
-    font-weight: 600;
-    font-size: 24px;
-    cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 10px 30px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background: antiquewhite;
+  color: gray;
+  font-weight: 600;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all ease-in-out 250ms;
 }
 
-.button:focus, 
+.button:focus,
 .button:hover {
-    background: yellow;
-    color: black;
-    box-shadow: 2px 2px 4px gray;
+  background: rgb(47, 129, 180);
+  color: antiquewhite;
+  box-shadow: 2px 2px 4px gray;
 }
 
 .button:active {
-    background: greenyellow;
-    color: black;
-    box-shadow: inset 2px 2px 4px gray;
+  background: rgb(47, 129, 180);
+  color: black;
+  box-shadow: inset 2px 2px 4px gray;
 }

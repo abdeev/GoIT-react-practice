@@ -25,6 +25,20 @@
   border-radius: 3px;
   margin: 5px;
   background-color: rgb(223, 223, 223);
+  animation-name: flip-in-hor-bottom;
+  animation-duration: 1s;
+}
+@keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+    transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+    opacity: 1;
+  }
 }
 
 .buttons {
@@ -42,11 +56,25 @@
   border-radius: 50%;
   border-style: none;
   box-shadow: 0px 0px 2px 2px rgba(47, 129, 180, 0.75);
+  transition: all ease-in-out 250ms;
 }
-
+.decrease_button:hover,
+.increase_button:hover,
+.clear_button:hover,
+.decrease_button:focus,
+.increase_button:focus,
+.clear_button:focus {
+  scale: 1.2;
+  box-shadow: 0px 0px 1px 1px rgba(47, 129, 180, 0.75);
+}
+.buttonResetIcon {
+  width: 15px;
+  height: auto;
+  padding: 0;
+}
 .buttonIcon {
   width: 10px;
-  height: 10px;
+  height: 11px;
   padding: 6px 3px;
 }
 
@@ -66,6 +94,12 @@
   border-radius: 5px;
   border-style: none;
   box-shadow: 0px 0px 2px 2px rgba(47, 129, 180, 0.75);
+  transition: all ease-in-out 250ms;
+}
+.delete_button:hover,
+.delete_button:focus {
+  scale: 1.05;
+  box-shadow: 0px 0px 1px 1px rgba(47, 129, 180, 0.75);
 }
 
 .thrashIcon {
@@ -78,6 +112,11 @@
   background-color: inherit;
   border: none;
   cursor: pointer;
+  transition: all ease-in-out 250ms;
+}
+.favouriteBtn:hover,
+.favouriteBtn:focus {
+  scale: 1.2;
 }
 
 .favouriteIcon {
@@ -92,6 +131,11 @@
   height: 15px;
 
   fill: red;
+  transition: all ease-in-out 250ms;
+}
+.favouriteActiveIcon:hover,
+.favouriteActiveIcon:focus {
+  scale: 1.2;
 }
 
 .buttonContainer {
@@ -116,10 +160,19 @@
   background-color: antiquewhite;
   border-radius: 10px;
   padding: 10px;
+  transition: all ease-in-out 250ms;
+}
+.navBtn:hover,
+.navBtn:focus {
+  background-color: rgb(47, 129, 180);
+  color: antiquewhite;
 }
 
 .favCounter {
   position: absolute;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 18px;
   font-style: normal;
   width: 20px;
   height: 20px;
@@ -127,6 +180,6 @@
   border-radius: 50%;
   top: -12px;
   right: -12px;
+  color: gray;
   background-color: antiquewhite;
 }
-

@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './StatisticsStyles.module.css';
 import { ReactComponent as UpIcon } from 'static/img/up.svg';
-import { ReactComponent as CrossIcon } from 'static/img/cross.svg';
+import { ReactComponent as ResetIcon } from 'static/img/reset.svg';
 import { ReactComponent as DownIcon } from 'static/img/down.svg';
 import { ReactComponent as TrashIcon } from 'static/img/thrash.svg';
 import { ReactComponent as FavouritesIcon } from 'static/img/heart.svg';
@@ -28,7 +28,7 @@ const StatCard = ({
           <UpIcon className={css.buttonIcon} />
         </button>
         <button className={css.clear_button} onClick={handleResetCounter}>
-          <CrossIcon className={css.buttonIcon} />
+          <ResetIcon className={css.buttonResetIcon} />
         </button>
         <button className={css.decrease_button}>
           <DownIcon

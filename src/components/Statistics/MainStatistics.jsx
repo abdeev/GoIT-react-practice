@@ -9,7 +9,6 @@ import { ButtonModal } from 'components/ButtonModal/ButtonModal';
 import { Modal } from 'components/Modal/Modal';
 import NotFound from 'pages/NotFound/NotFound';
 
-
 const localStorage = () => {
   return JSON.parse(window.localStorage.getItem('statsElements'));
 };
@@ -97,7 +96,6 @@ export const StatCompon = () => {
     setFavTotal(favLength);
   }, [statsElements]);
 
-
   return (
     <div className={css.statistics_wrapper}>
       <h1 className={css.statistics_header}>Main statistics</h1>
@@ -105,7 +103,6 @@ export const StatCompon = () => {
       <ButtonModal actionOpenModal={handleOpenModal} />
       <nav className={css.nav}>
         <NavLink to="/" end className={css.navBtn}>
-
           All cards
         </NavLink>
         <NavLink to="/favoriets" className={css.navBtn}>
@@ -113,7 +110,7 @@ export const StatCompon = () => {
           {!!favTotal && <b className={css.favCounter}>{favTotal}</b>}
         </NavLink>
       </nav>
-      
+
       <Routes>
         <Route
           path="/"
@@ -141,7 +138,7 @@ export const StatCompon = () => {
             />
           }
         />
-        <Route path="*" element={<div>404 Not Found</div>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {showModal && (

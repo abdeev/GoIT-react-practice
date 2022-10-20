@@ -14,6 +14,14 @@
 .addCardButton {
   border-radius: 15px;
   border: none;
-  background-color: lightgreen;
+  color: grey;
+  background-color: antiquewhite;
   cursor: pointer;
+  transition: all ease-in-out 250ms;
+}
+.addCardButton:hover,
+.addCardButton:focus {
+  scale: 1.1;
+  color: antiquewhite;
+  background-color: rgb(47, 129, 180);
 }

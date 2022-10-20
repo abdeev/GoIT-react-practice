@@ -1,5 +1,4 @@
 import StatCard from 'components/Statistics/StatitisticCards';
-import { useEffect, useState } from 'react';
 
 import css from '../../components/Statistics/StatisticsStyles.module.css';
 
