@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import css from 'components/AddCardForm/AddCardForm.module.css';
 
+import { useDispatch } from 'react-redux';
+import { addCard } from 'redux/slices/cardsSlice';
+
 export const AddCardForm = ({ onCreateCard }) => {
   const [title, setTitle] = useState('');
   const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
 
   const handleTitle = evt => {
     setTitle(evt.currentTarget.value);
@@ -25,11 +29,10 @@ export const AddCardForm = ({ onCreateCard }) => {
       title: title,
       count: count,
       favorite: false,
-      totalCards: 0,
-      totalFavCards: 0,
     };
 
-    onCreateCard(card);
+    // onCreateCard(card);
+    dispatch(addCard(card))
     setTitle('');
     setCount(0);
   };
