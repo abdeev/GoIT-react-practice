@@ -1,85 +1,19 @@
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { AllCards } from 'pages/AllCards/AllCards';
 import { FavorietsCards } from 'pages/FavorietsCards/FavorietsCards';
 
-import css from './StatisticsStyles.module.css';
-
 import { ButtonModal } from 'components/ButtonModal/ButtonModal';
 import { Modal } from 'components/Modal/Modal';
 import NotFound from 'pages/NotFound/NotFound';
 
-import { addCard, addToFavorite } from 'redux/slices/cardsSlice';
-// import { useDispatch, useSelector } from 'react-redux';
-
-const localStorage = () => {
-  return JSON.parse(window.localStorage.getItem('statsElements'));
-};
+import css from './StatisticsStyles.module.css';
 
 export const StatCompon = () => {
-  // const [statsElements, setStatsElements] = useState(localStorage() ?? []);
   const [showModal, setShowModal] = useState(false);
+  // eslint-disable-next-line
   const [favTotal, setFavTotal] = useState(null);
-
-  // const { cards } = useSelector((state) => state.cards);
-  // const dispatch = useDispatch();
-
-  // console.log(cards);
-
-  // useEffect(() => {
-  //   const LSSetData = JSON.stringify(statsElements);
-  //   window.localStorage.setItem('statsElements', LSSetData);
-  // }, [statsElements]);
-
-  // const handelIncreaseCounter = (id) => {
-  //   const newElArr = statsElements.map(el => {
-  //     if (el.id === id) {
-  //       return { ...el, count: (el.count += 1) };
-  //     }
-  //     return el;
-  //   });
-  //   setStatsElements(newElArr);
-  // };
-
-  // const handleDecreaseCounter = (id) => () => {
-  //   const x = statsElements.find(el => el.id === id);
-
-  //   if (!x.count) {
-  //     return;
-  //   }
-
-  //   const newElArr = statsElements.map(el => {
-  //     if (el.id === id) {
-  //       return { ...el, count: (el.count -= 1) };
-  //     }
-  //     return el;
-  //   });
-  //   setStatsElements(newElArr);
-  // };
-
-  // const handleResetCounter = (id) => {
-  //   return () => {
-  //     const newElArr = statsElements.map(el => {
-  //       if (el.id === id) {
-  //         return { ...el, count: 0 };
-  //       }
-  //       return el;
-  //     });
-  //     setStatsElements(newElArr);
-  //   };
-  // };
-
-  // const handleDeleteCard = (id) => {
-  //   const filteredCards = statsElements.filter(el => el.id !== id);
-  //   setStatsElements(filteredCards);
-  // };
-
-  // const handleCreateCard = (cardObj) => {
-  //   dispatch(addCard(cardObj));
-
-  //   // setStatsElements([cardObj, ...statsElements]);
-  //   setShowModal(false);
-  // };
 
   const handleOpenModal = () => {
     setShowModal(true);
@@ -89,7 +23,7 @@ export const StatCompon = () => {
     setShowModal(false);
   };
 
-  // useEffect(() => {
+  //! useEffect(() => {
   //   const favLength = statsElements.filter(card => card.favorite).length;
   //   setFavTotal(favLength);
   // }, [statsElements]);
@@ -110,41 +44,12 @@ export const StatCompon = () => {
       </nav>
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <AllCards
-            // items={statsElements}
-            // handelIncreaseCounter={handelIncreaseCounter}
-            // handleDeleteCard={handleDeleteCard}
-            // handleDecreaseCounter={handleDecreaseCounter}
-            // handleResetCounter={handleResetCounter}
-            // handleAddFavourite={addToFavorite}
-            />
-          }
-        />
-        <Route
-          path="/favoriets"
-          element={
-            <FavorietsCards
-            // cards={statsElements}
-            // handelIncreaseCounter={handelIncreaseCounter}
-            // handleDeleteCard={handleDeleteCard}
-            // handleDecreaseCounter={handleDecreaseCounter}
-            // handleResetCounter={handleResetCounter}
-            // handleAddFavourite={handleAddFavourite}
-            />
-          }
-        />
+        <Route path="/" element={<AllCards />} />
+        <Route path="/favoriets" element={<FavorietsCards />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {showModal && (
-        <Modal
-          // onCreateCard={handleCreateCard}
-          onCloseModal={handleCloseModal}
-        />
-      )}
+      {showModal && <Modal onCloseModal={handleCloseModal} />}
     </div>
   );
 };
