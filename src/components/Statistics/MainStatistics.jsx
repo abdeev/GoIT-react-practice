@@ -1,9 +1,8 @@
-// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { AllCards } from 'pages/AllCards/AllCards';
 import { FavorietsCards } from 'pages/FavorietsCards/FavorietsCards';
-
+import { useSelector } from 'react-redux';
 import { ButtonModal } from 'components/ButtonModal/ButtonModal';
 import { Modal } from 'components/Modal/Modal';
 import NotFound from 'pages/NotFound/NotFound';
@@ -22,11 +21,12 @@ export const StatCompon = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  const cards = useSelector(state => state.cards.cards);
 
-  //! useEffect(() => {
-  //   const favLength = statsElements.filter(card => card.favorite).length;
-  //   setFavTotal(favLength);
-  // }, [statsElements]);
+  useEffect(() => {
+    const favLength = cards?.filter(card => card.favorite).length;
+    setFavTotal(favLength);
+  }, [cards]);
 
   return (
     <div className={css.statistics_wrapper}>
