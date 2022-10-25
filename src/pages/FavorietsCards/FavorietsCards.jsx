@@ -3,16 +3,7 @@ import { useSelector } from 'react-redux';
 
 import css from '../../components/Statistics/StatisticsStyles.module.css';
 
-export const FavorietsCards = (
-  {
-    // cards,
-    // handelIncreaseCounter,
-    // handleDeleteCard,
-    // handleDecreaseCounter,
-    // handleResetCounter,
-    // handleAddFavourite,
-  }
-) => {
+export const FavorietsCards = () => {
   const { cards } = useSelector(state => state.cards);
   return (
     <div className={css.statistics_cards_wrapper}>
@@ -25,11 +16,6 @@ export const FavorietsCards = (
             count={count}
             favorite={favorite}
             key={id}
-            // handlIncreaseClick={handelIncreaseCounter}
-            // handleDeleteCard={handleDeleteCard}
-            // handleDecreaseCounter={handleDecreaseCounter(id)}
-            // handleResetCounter={handleResetCounter(id)}
-            // handleAddFavourite={handleAddFavourite}
           />
         ))}
     </div>
