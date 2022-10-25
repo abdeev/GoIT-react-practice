@@ -22,9 +22,9 @@ export const cardsSlice = createSlice({
     },
 
     decreaseCounter(state, action) {
-      const x = state.cards.find(card => card.id === action.payload);
+      const card = state.cards.find(card => card.id === action.payload);
 
-      if (!x.count) {
+      if (!card.count) {
         return;
       }
 

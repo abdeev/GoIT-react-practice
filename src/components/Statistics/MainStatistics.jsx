@@ -11,8 +11,8 @@ import css from './StatisticsStyles.module.css';
 
 export const StatCompon = () => {
   const [showModal, setShowModal] = useState(false);
-  // eslint-disable-next-line
   const [favTotal, setFavTotal] = useState(null);
+  const cards = useSelector(state => state.cards.cards);
 
   const handleOpenModal = () => {
     setShowModal(true);
@@ -21,18 +21,17 @@ export const StatCompon = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  const cards = useSelector(state => state.cards.cards);
 
   useEffect(() => {
-    const favLength = cards?.filter(card => card.favorite).length;
+    const favLength = cards.filter(card => card.favorite).length;
     setFavTotal(favLength);
   }, [cards]);
 
   return (
     <div className={css.statistics_wrapper}>
       <h1 className={css.statistics_header}>Main statistics</h1>
-
       <ButtonModal actionOpenModal={handleOpenModal} />
+
       <nav className={css.nav}>
         <NavLink to="/" end className={css.navBtn}>
           All cards
