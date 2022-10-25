@@ -13,7 +13,7 @@ export const Modal = ({ onCreateCard, onCloseModal }) => {
           <CrossIcon className={css.buttonIcon} />
         </button>
 
-        <AddCardForm onCreateCard={onCreateCard} />
+        <AddCardForm onCreateCard={onCreateCard} onCloseModal={onCloseModal} />
       </div>
     </div>,
     document.body

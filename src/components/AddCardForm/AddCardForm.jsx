@@ -5,7 +5,7 @@ import css from 'components/AddCardForm/AddCardForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addCard } from 'redux/slices/cardsSlice';
 
-export const AddCardForm = ({ onCreateCard }) => {
+export const AddCardForm = ({ onCloseModal }) => {
   const [title, setTitle] = useState('');
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
@@ -31,8 +31,8 @@ export const AddCardForm = ({ onCreateCard }) => {
       favorite: false,
     };
 
-    // onCreateCard(card);
-    dispatch(addCard(card))
+    dispatch(addCard(card));
+    onCloseModal();
     setTitle('');
     setCount(0);
   };

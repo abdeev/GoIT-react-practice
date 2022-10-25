@@ -9,10 +9,8 @@ import { ButtonModal } from 'components/ButtonModal/ButtonModal';
 import { Modal } from 'components/Modal/Modal';
 import NotFound from 'pages/NotFound/NotFound';
 
-import { addCard } from 'redux/slices/cardsSlice';
+import { addCard, addToFavorite } from 'redux/slices/cardsSlice';
 // import { useDispatch, useSelector } from 'react-redux';
-
-
 
 const localStorage = () => {
   return JSON.parse(window.localStorage.getItem('statsElements'));
@@ -27,12 +25,6 @@ export const StatCompon = () => {
   // const dispatch = useDispatch();
 
   // console.log(cards);
-  
-
-
-
-
-
 
   // useEffect(() => {
   //   const LSSetData = JSON.stringify(statsElements);
@@ -84,7 +76,7 @@ export const StatCompon = () => {
 
   // const handleCreateCard = (cardObj) => {
   //   dispatch(addCard(cardObj));
-    
+
   //   // setStatsElements([cardObj, ...statsElements]);
   //   setShowModal(false);
   // };
@@ -96,17 +88,6 @@ export const StatCompon = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-
-  // const handleAddFavourite = (id) => {
-  //   const newArr = statsElements.map(card => {
-  //     if (card.id !== id) {
-  //       return card;
-  //     }
-
-  //     return { ...card, favorite: !card.favorite };
-  //   });
-  //   setStatsElements(newArr);
-  // };
 
   // useEffect(() => {
   //   const favLength = statsElements.filter(card => card.favorite).length;
@@ -133,12 +114,12 @@ export const StatCompon = () => {
           path="/"
           element={
             <AllCards
-              // items={statsElements}
-              // handelIncreaseCounter={handelIncreaseCounter}
-              // handleDeleteCard={handleDeleteCard}
-              // handleDecreaseCounter={handleDecreaseCounter}
-              // handleResetCounter={handleResetCounter}
-              // handleAddFavourite={handleAddFavourite}
+            // items={statsElements}
+            // handelIncreaseCounter={handelIncreaseCounter}
+            // handleDeleteCard={handleDeleteCard}
+            // handleDecreaseCounter={handleDecreaseCounter}
+            // handleResetCounter={handleResetCounter}
+            // handleAddFavourite={addToFavorite}
             />
           }
         />
@@ -146,12 +127,12 @@ export const StatCompon = () => {
           path="/favoriets"
           element={
             <FavorietsCards
-              // cards={statsElements}
-              // handelIncreaseCounter={handelIncreaseCounter}
-              // handleDeleteCard={handleDeleteCard}
-              // handleDecreaseCounter={handleDecreaseCounter}
-              // handleResetCounter={handleResetCounter}
-              // handleAddFavourite={handleAddFavourite}
+            // cards={statsElements}
+            // handelIncreaseCounter={handelIncreaseCounter}
+            // handleDeleteCard={handleDeleteCard}
+            // handleDecreaseCounter={handleDecreaseCounter}
+            // handleResetCounter={handleResetCounter}
+            // handleAddFavourite={handleAddFavourite}
             />
           }
         />

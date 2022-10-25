@@ -5,21 +5,25 @@ import { ReactComponent as ResetIcon } from 'static/img/reset.svg';
 import { ReactComponent as DownIcon } from 'static/img/down.svg';
 import { ReactComponent as TrashIcon } from 'static/img/thrash.svg';
 import { ReactComponent as FavouritesIcon } from 'static/img/heart.svg';
+import { useDispatch } from 'react-redux';
+import { addToFavorite, increaseCounter } from 'redux/slices/cardsSlice';
 
 const StatCard = ({
   id,
   title,
   count,
   favorite,
-  handlIncreaseClick,
+
   handleDecreaseCounter,
   handleResetCounter,
   handleDeleteCard,
   handleAddFavourite,
 }) => {
-  const handleUpClick = () => handlIncreaseClick(id);
+  const dispatch = useDispatch();
+
+  const handleUpClick = () => dispatch(increaseCounter(id));
   const handleDeleteClick = () => handleDeleteCard(id);
-  const handleFavouriteClick = () => handleAddFavourite(id);
+  const handleFavouriteClick = () => dispatch(addToFavorite(id));
 
   return (
     <div className={css.card_wrapper}>
